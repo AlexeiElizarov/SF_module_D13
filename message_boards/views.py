@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.shortcuts import render
 from django.http import HttpResponse, HttpRequest
 
@@ -8,4 +9,5 @@ class Advertsement(View):
 
 
 def index(request: HttpRequest) -> HttpResponse:
+    print('***************', settings.BASE_DIR)
     return render(request, 'message_boards/page.html')

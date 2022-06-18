@@ -169,3 +169,6 @@ EMAIL_HOST_PASSWORD = env.str('EMAIL_HOST_PASSWORD')
 EMAIL_USE_SSL = True
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

@@ -1,0 +1,20 @@
+{% extends 'default.html' %}
+
+{% block title %}
+    Detail
+{% endblock title %}
+
+{% block content %}
+    {{ advertsement.title|safe }}
+    {{ advertsement.body|safe }}
+    <p>
+        <iframe width="560" height="315"
+                src="https://www.youtube.com/watch?v=fMZBTCRGMS8&t=568s"
+                frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+        </iframe>
+    </p>
+    {% if request.user == advertsement.user %}
+        <a href="{% url 'advertsement_edit' advertsement.id %}" class="btn btn-primary">Редактировать</a>
+    {% endif %}
+{% endblock content %}

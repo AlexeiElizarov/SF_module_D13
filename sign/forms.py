@@ -20,8 +20,6 @@ class BaseRegisterForm(UserCreationForm):
                   ]
 
 
-
-
 class VerifiedCodeForm(forms.Form):
     verified_fieid = forms.CharField()
 

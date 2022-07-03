@@ -63,11 +63,9 @@ class VerifiedCodeView(FormView):
             username = request.session.get('username', 0)
             user = MyUser.objects.get(username=username)
             code_in_database = OneTimeCode.objects.get(user=user).code
-            print('code_in_database   ',code_in_database)
             form = VerifiedCodeForm(request.POST)
             if form.is_valid():
                 code_in_field = form.cleaned_data.get("verified_fieid")
-                print('code_in_field  ', code_in_field)
                 if code_in_field == code_in_database:
                     user.is_active = True
                     user.save()

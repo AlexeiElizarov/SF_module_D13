@@ -5,7 +5,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from typing import Optional
 
-from message_boards.models import Advertsement
+# from message_boards.models import Advertsement
 
 
 class MyUser(AbstractUser):
@@ -27,10 +27,10 @@ class MyUser(AbstractUser):
     gender: str = models.CharField(max_length=2, choices=GENDER, default=man)
     mailing: bool = models.BooleanField(default=False)
     is_active: bool = models.BooleanField(default=False)
-    advertsement: Advertsement = models.ForeignKey(Advertsement, on_delete=models.CASCADE, null=True)
+    # advertsement: Advertsement = models.ForeignKey(Advertsement, on_delete=models.CASCADE, null=True)
 
     def __str__(self) -> str:
-        return f"{self.full_name}"
+        return f"{self.username}"
 
 
 class OneTimeCode(models.Model):

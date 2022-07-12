@@ -1,8 +1,7 @@
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
 from django import forms
 from ckeditor_uploader.fields import RichTextUploadingField
-from .models import Advertsement, Category
-
+from .models import Advertsement, Category, Replies, News
 
 
 class AdvertsementForm(forms.ModelForm):
@@ -15,5 +14,17 @@ class AdvertsementForm(forms.ModelForm):
             "title",
             "body",
             "category",
-            # "advertsement_category",
         ]
+
+class RepliesForm(forms.ModelForm):
+    body = forms.Textarea()
+
+    class Meta:
+        model = Replies
+        fields = ["body"]
+
+
+class NewsForm(forms.ModelForm):
+    class Meta:
+        model = News
+        fields = ["title", "body"]

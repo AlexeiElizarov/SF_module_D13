@@ -51,10 +51,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'message_boards.apps.MessageBoardsConfig',
+    'django_filters',
     'ckeditor',
     'ckeditor_uploader',
-    'message_boards',
+    # 'message_boards',
     'protect',
     'sign',
 

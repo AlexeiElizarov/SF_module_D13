@@ -58,13 +58,34 @@ class Advertsement(models.Model):
     body = RichTextUploadingField()
     category = models.CharField(max_length=2, choices=CategoryChoices.choices, default=CategoryChoices.OTHER)
     user: MyUser = models.ForeignKey(MyUser, on_delete=models.CASCADE)
+    # replies = models.ForeignKey("Replies", on_delete=models.CASCADE)
 
     def get_absolute_url(self):
         return f'/advertsement/{self.id}'
 
+    def __str__(self):
+        return f'{self.title}'
 
-# class AdvertsementCategory(models.Model):
-#     advertsement = models.ForeignKey("Advertsement", on_delete=models.CASCADE)
-#     category = models.ForeignKey("Category", on_delete=models.CASCADE)
 
+class Replies(models.Model):
+    '''Класс описывает отелкик на объявление'''
+    body = models.TextField()
+    advertsement = models.ForeignKey("Advertsement", on_delete=models.CASCADE)
+    user = models.ForeignKey(MyUser, on_delete=models.CASCADE)
+
+    class Meta:
+        ordering = ['-id']
+
+    def get_absolute_url(self):
+        return f'/advertsement/user_replies/{self.id}'
+
+
+class News(models.Model):
+    '''Класс новостей'''
+    title = models.CharField(max_length=255)
+    body = models.TextField()
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.title}'
 

@@ -5,20 +5,9 @@
 {% endblock title %}
 
 {% block content %}
-    <h1>sdfdsfsdfds</h1>
+    <h2>Все объявления</h2>
     {% for advertsement in advertsements %}
-
-        <div class="card">
-                <h5 class="card-header">{{ advertsement.title }}</h5>
-            <div class="card-body">
-<!--                <h5 class="card-title">Special title treatment</h5>-->
-                <p class="card-text">{{ advertsement.title }}</p>
-                <p class="card-text">{{ advertsement.get_category_display }}</p>
-
-                <a href="{{ advertsement.get_absolute_url }}" class="btn btn-primary">Смотреть</a>
-
-            </div>
-        </div>
+        {% include 'message_boards/includes/advertsement_card_button_look.html' %}
     {% endfor %}
 
         {% if is_paginated %}
